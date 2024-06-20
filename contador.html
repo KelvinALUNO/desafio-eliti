@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contador</title>
+</head>
+
+<style>
+div {
+    border-radius: 20%;
+    border-bottom: 10%;
+    margin: 0;
+}
+</style>
+<body>
+    <div>
+        <h1>contador</h1>
+        
+    <p id="contador">0</p> 
+    <button onclick="mais()">mais</button>
+    <button onclick="menos()">menos</button>
+    </div>
+   <script>
+    let numero = 0
+    function mais() {
+        numero++
+        tela()
+    }
+    function menos() {
+        numero--
+        tela()
+    }
+    function tela() {
+        const p = document.querySelector("#contador")
+        p.innerText = numero
+    }
+    tela()
+   </script>
+</body>
+</html>
