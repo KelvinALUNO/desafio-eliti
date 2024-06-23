@@ -7,35 +7,145 @@
 </head>
 
 <style>
-div {
-    border-radius: 20%;
-    border-bottom: 10%;
-    margin: 0;
+    section {
+        display: inline-flex;
+    }
+    
+    .div1 {
+    background: pink;
+    border: 5px solid black;
+    height: auto;
+    display: grid;
+    place-items: left;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    margin: 100px;
 }
+
+.div2 {
+    border: 5px solid black;
+    height: auto;
+    background: gray;
+    display: grid;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    margin: 100px;
+}
+
+.div3 {
+    border: 5px solid black;
+    height: auto;
+    background: olive;
+    display: grid;
+    place-items: right;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    margin: 100px;
+}
+p {
+    font-size: 100px;
+}
+
+
 </style>
 <body>
-    <div>
+    <section>
+    <div class="div1">
         <h1>contador</h1>
         
-    <p id="contador">0</p> 
-    <button onclick="mais()">mais</button>
-    <button onclick="menos()">menos</button>
-    </div>
-   <script>
-    let numero = 0
-    function mais() {
+        <p id="contador">0</p> 
+        <button onclick="mais()">mais</button>
+        <button onclick="menos()" id="menos1">menos</button>
+    <script>
+        let numero = 0
+        function mais() {
+            numero++
+            tela()
+        }
+        function mais() {
         numero++
         tela()
     }
     function menos() {
-        numero--
-        tela()
+            if (numero > 0) {
+                numero--;
+            }
+            if (numero === 0) {
+                document.querySelector("#menos1").removeEventListener('click', menos)
+            }
+            tela()
     }
     function tela() {
         const p = document.querySelector("#contador")
         p.innerText = numero
     }
     tela()
-   </script>
+        </script>
+  </div>
+  <div class="div2">
+    <h1>contado 2</h1>
+    
+<p id="contador2">0</p> 
+<button onclick="mais2()">mais</button>
+<button onclick="menos2()" id="bmenos2" disabled>menos</button>
+<script>
+    let numero2 = 0
+    function mais2() {
+        numero2++
+        document.querySelector("#bmenos2").removeAttribute("disabled")
+        tela2()
+    }
+    function menos2() {
+            if (numero2 > 0) {
+                numero2--;
+            }
+            if (numero2 === 0) {
+                document.getElementById("bmenos2").setAttribute("disabled", true);
+            }
+            tela2()
+    }
+    function tela2() {
+        const p = document.querySelector("#contador2")
+        p.innerText = numero2
+    }
+    tela2()
+    </script>
+</div>
+<div class="div3">
+    <h1>contador 3</h1>
+    
+<p id="contador3">0</p> 
+<button onclick="mais3()">mais</button>
+<button onclick="menos3()" id="bmenos3" disabled>menos</button>
+<script>
+    let numero3 = 0
+    function mais3() {
+        numero3++
+        document.querySelector("#bmenos3").removeAttribute("disabled")
+        tela3()
+    }
+    function menos3() {
+            if (numero3 > 0) {
+                numero3--;
+            }
+            if (numero3 === 0) {
+                document.getElementById("bmenos3").setAttribute("disabled", true);
+            }
+            tela3()
+    }
+    function tela3() {
+        const p = document.querySelector("#contador3")
+        p.innerText = numero3
+    }
+    tela3()
+    </script>
+</div>
+</section>
 </body>
 </html>
